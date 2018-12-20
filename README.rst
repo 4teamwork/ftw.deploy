@@ -23,6 +23,26 @@ After installation, should have a ``deploy`` command available.
 The most recent documentation is available with ``deploy help``.
 
 
+**Initialize deploy scripts**
+
+The first step in a fresh project is to initialize the deployment scripts.
+This can be done with ``deploy init plone``.
+This will create scripts in the folders ``deploy`` and ``scripts``.
+
+**Installing deployment and configuring the remote**
+
+Next, install the deployment on the server by cloning the repository and
+performing installation steps.
+Then adapt ``scripts/setup-git-remotes`` with the deployment location and execute it.
+
+**Setup hook**
+
+For installing the ``post-receive`` hook and configuring the repository execute the
+``deploy setup [remote]`` command.
+
+
+
+
 Development
 -----------
 

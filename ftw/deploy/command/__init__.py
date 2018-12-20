@@ -5,6 +5,7 @@ import sys
 from pkg_resources import get_distribution
 
 from . import help
+from . import init
 from . import setup
 from .formatter import FlexiFormatter
 
@@ -26,6 +27,7 @@ class DeployCommand(object):
         self.parser.add_argument('--version', action='version', version=VERSION)
         commands = self.parser.add_subparsers(help='Command', dest='command')
 
+        init.setup_argparser(commands)
         setup.setup_argparser(commands)
 
         help.setup_argparser(commands)

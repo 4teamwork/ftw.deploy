@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+setup_remote () {
+    name=$1
+    url=$2
+
+    echo ""
+    echo "setup remote \"$name\" -> $url"
+    git remote rm $name 2> /dev/null
+    git remote add $name $url
+    git fetch $name
+}
+
+setup_remote "prod" "zope@my.server.com:/home/zope/heta.4teamwork.ch/01-plone-site-PRODUCTION"
+setup_remote "test" "zope@my.server.com:/home/zope/heta.4teamwork.ch/02-plone-site-TEST"

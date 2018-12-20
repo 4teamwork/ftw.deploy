@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# This script is only used when push deployment is not possible,
+# because of a VPN setup without ssh connection possible, for example.
+# It simulates a push and can be manually called in the terminal on the deployment.
+
+set -e
+
+if [[ "$0" != "./deploy/pull" && "$0" != "deploy/pull" ]]; then
+    echo "ERROR: cd to the repository root and run ./deploy/pull"
+    exit 1;
+fi
+
+if [[ ! -f ./.git/LAST_DEPLOY_HEAD ]]; then
+    git rev-parse HEAD > ./.git/LAST_DEPLOY_HEAD
+fi
+
+
+oldrev=`cat ./.git/LAST_DEPLOY_HEAD`
+echo "> git pull --ff-only"
+git pull --ff-only
+echo ""
+newrev=`git rev-parse HEAD`
+
+if [ $oldrev == $newrev ]; then
+    echo "Aborting because there are no new commits ($oldrev -> $newrev)"
+    exit 0;
+fi
+
+echo "> deploy/after_push"
+logfile=var/log/deploy.log
+deploy/after_push $oldrev $newrev 2>&1 | tee -a $logfile
+if [ $? -eq 0 ]; then
+    git rev-parse HEAD > ./.git/LAST_DEPLOY_HEAD
+fi
