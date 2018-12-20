@@ -1,5 +1,6 @@
-from . import TestCase
 import re
+
+from . import TestCase
 
 
 class TestCommandVersion(TestCase):
