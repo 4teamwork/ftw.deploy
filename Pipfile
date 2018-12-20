@@ -4,6 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+pytest = "*"
+pytest-console-scripts = "*"
 
 [dev-packages]
 ftw-deploy = {editable = true, path = "."}
