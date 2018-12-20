@@ -40,7 +40,9 @@ Then adapt ``scripts/setup-git-remotes`` with the deployment location and execut
 For installing the ``post-receive`` hook and configuring the repository execute the
 ``deploy setup [remote]`` command.
 
+**Update scripts**
 
+You can update existing scripts in a project with ``deploy update``.
 
 
 Development

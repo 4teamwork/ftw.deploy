@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from .base import TemplateBase
 
 
@@ -5,8 +7,11 @@ from .base import TemplateBase
 class PloneTemplate(TemplateBase):
     name = 'plone'
 
-    def install_scripts(self):
-        self.install_script('deploy/after_push')
-        self.install_script('deploy/pull')
-        self.install_script('deploy/update_plone')
-        self.install_script('scripts/setup-git-remotes')
+    def is_applied_to_project(self):
+        return Path('deploy/update_plone').exists()
+
+    def install_scripts(self, update):
+        self.install_script('deploy/after_push', create=not update)
+        self.install_script('deploy/pull', create=not update)
+        self.install_script('deploy/update_plone', create=not update)
+        self.install_script('scripts/setup-git-remotes', overwrite=False)

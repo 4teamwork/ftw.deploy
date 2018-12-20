@@ -26,4 +26,4 @@ def setup_argparser(commands):
 
 def init_command(args):
     print(f'Installing {args.template} deployment scripts.')
-    TEMPLATES[args.template]().install()
+    TEMPLATES[args.template].install()

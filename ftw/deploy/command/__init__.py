@@ -7,6 +7,7 @@ from pkg_resources import get_distribution
 from . import help
 from . import init
 from . import setup
+from . import update
 from .formatter import FlexiFormatter
 
 
@@ -29,6 +30,7 @@ class DeployCommand(object):
 
         init.setup_argparser(commands)
         setup.setup_argparser(commands)
+        update.setup_argparser(commands)
 
         help.setup_argparser(commands)
 
