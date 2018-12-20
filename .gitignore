@@ -1,0 +1,7 @@
+*.egg-info
+*.mo
+*.pyc
+/README.html
+/build/
+/include/
+/lib/
