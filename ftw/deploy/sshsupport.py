@@ -15,11 +15,17 @@ def upload_post_receive_hook(remote_ssh_string):
 
 def remote_execute(remote_ssh_string, command):
     user_host, directory = remote_ssh_string.split(':')
-    command = f'ssh {user_host} "cd {directory} && {command}"'
-    print(f'> {command}')
-    subprocess.check_call(shlex.split(command))
+    command = ['ssh', user_host, f'cd {directory} && {command}']
+    print('> {}'.format(' '.join(command)))
+    subprocess.check_call(command)
 
 
 def configure_remote_git_repository(remote_ssh_string):
     remote_execute(remote_ssh_string, 'git config --bool receive.denyNonFastForwards false')
     remote_execute(remote_ssh_string, 'git config receive.denyCurrentBranch ignore')
+
+
+def rerun_last_deployment(remote_ssh_string):
+    remote_execute(
+        remote_ssh_string,
+        "deploy/after_push `git rev-parse HEAD@{1} HEAD` | tee -a log/deploy.log")

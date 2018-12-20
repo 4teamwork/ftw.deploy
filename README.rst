@@ -44,6 +44,21 @@ For installing the ``post-receive`` hook and configuring the repository execute 
 
 You can update existing scripts in a project with ``deploy update``.
 
+**Installing an update**
+
+When all is set up, you can simply push on the ``master``-branch  of the remote in
+order to install an update. Examples:
+
+.. code::
+
+   git push prod master
+   git push test my-branch:master
+   git push prod test/master:master
+
+**Rerun a deployment**
+
+If you need to rerun a deployment, simply use ``deploy rerun [remote]``.
+
 
 Development
 -----------

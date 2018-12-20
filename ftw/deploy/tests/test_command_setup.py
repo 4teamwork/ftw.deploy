@@ -28,7 +28,7 @@ class TestCommandSetup(TestCase):
         assert ret.stderr == ''
         assert [
             '> scp {ftw.deploy/scripts}/post-receive example.com:/apps/02-test/.git/hooks/post-receive',
-            '> ssh example.com "cd /apps/02-test && git config --bool receive.denyNonFastForwards false"',
-            '> ssh example.com "cd /apps/02-test && git config receive.denyCurrentBranch ignore"',
+            '> ssh example.com cd /apps/02-test && git config --bool receive.denyNonFastForwards false',
+            '> ssh example.com cd /apps/02-test && git config receive.denyCurrentBranch ignore',
         ] == self.replace_paths_in_output(ret.stdout).splitlines()
         assert ret.success
