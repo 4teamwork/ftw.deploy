@@ -1,7 +1,11 @@
 *.egg-info
 *.mo
 *.pyc
+/.tox/
 /README.html
 /build/
 /include/
 /lib/
+
+/bin/*
+!/bin/cibuild

@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+set -e pipefail
+cd "$(dirname "$0")/.."
+
+tox
+exit $?
