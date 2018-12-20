@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "7e7ef69da7248742e869378f8421880cf8f0017f96d94d086813baa518a65489"
+            "sha256": "60910f11959539b070993e59e4715119b2e4213c08d4d195c30d074b8d7e7bb6"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,5 +16,10 @@
         ]
     },
     "default": {},
-    "develop": {}
+    "develop": {
+        "ftw-deploy": {
+            "editable": true,
+            "path": "."
+        }
+    }
 }

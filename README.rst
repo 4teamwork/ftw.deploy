@@ -12,6 +12,8 @@ In order to develop ``ftw.deploy``, you need to install
   $ git clone git@github.com:4teamwork/ftw.deploy.git
   $ cd ftw.deploy
   $ pipenv install
+  $ pipenv shell
+  $ deploy --help
 
 
 Copyright

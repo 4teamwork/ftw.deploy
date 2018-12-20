@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 
 [dev-packages]
+ftw-deploy = {editable = true, path = "."}
 
 [requires]
 python_version = "3.7"

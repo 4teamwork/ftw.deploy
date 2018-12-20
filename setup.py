@@ -30,4 +30,8 @@ setup(name='ftw.deploy',
       install_requires=[
       ],
       tests_require=[
-      ])
+      ],
+
+      entry_points={
+          'console_scripts': ['deploy = ftw.deploy.command:main']
+      })
