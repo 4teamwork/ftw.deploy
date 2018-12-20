@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 pytest = "*"
 pytest-console-scripts = "*"
+"flake8" = "*"
 
 [dev-packages]
 ftw-deploy = {editable = true, path = "."}

@@ -9,8 +9,9 @@ setup(name='ftw.deploy',
       version=version,
       description='Tooling and scripts for git push based deployment at 4teamwork.',
 
-      long_description=(open('README.rst').read() + '\n' +
-                        open(os.path.join('docs', 'HISTORY.txt')).read()),
+      long_description=(
+          open('README.rst').read() + '\n'
+          + open(os.path.join('docs', 'HISTORY.txt')).read()),
 
       classifiers=[
           'Intended Audience :: Developers',
