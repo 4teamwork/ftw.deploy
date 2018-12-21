@@ -17,7 +17,7 @@ EXAMPLES:
 
 def setup_argparser(commands):
     command = commands.add_parser('update',
-                                  help='UIpdate deployment scripts in this repository.',
+                                  help='Update deployment scripts in this repository.',
                                   description=DOCS)
     command.set_defaults(func=update_command)
 
