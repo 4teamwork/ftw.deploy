@@ -2,17 +2,13 @@ import argparse
 import os
 import sys
 
-from pkg_resources import get_distribution
-
 from . import help
 from . import init
 from . import rerun
 from . import setup
 from . import update
+from .. import VERSION
 from .formatter import FlexiFormatter
-
-
-VERSION = get_distribution('ftw.deploy').version
 
 
 class DeployArgumentParser(argparse.ArgumentParser):

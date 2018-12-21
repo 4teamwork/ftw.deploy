@@ -3,6 +3,7 @@ import stat
 from pathlib import Path
 
 from . import TestCase
+from .. import VERSION
 
 
 class TestCommandInitPlone(TestCase):
@@ -46,3 +47,9 @@ class TestCommandInitPlone(TestCase):
         assert self.deploy('init', 'plone').success
         assert os.path.lexists('tmp/.gitignore')
         assert Path('tmp/.gitignore').read_bytes() == b'*\n!.gitignore\n'
+
+    def test_scripts_have_version_comment(self):
+        assert self.deploy('init', 'plone').success
+
+        script = Path('deploy/after_push')
+        self.assertIn('# ftw.deploy {}'.format(VERSION), script.read_bytes().decode('utf-8'))

@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# {{ftw.deploy version}}
 
 import argparse
 import ConfigParser

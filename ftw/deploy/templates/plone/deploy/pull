@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# {{ftw.deploy version}}
 
 # This script is only used when push deployment is not possible,
 # because of a VPN setup without ssh connection possible, for example.

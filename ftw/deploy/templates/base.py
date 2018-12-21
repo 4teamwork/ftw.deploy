@@ -1,9 +1,9 @@
 import os
 import shlex
-import shutil
-import stat
 import subprocess
 from pathlib import Path
+
+from ..utils import copy_from_template
 
 
 TEMPLATES = {}
@@ -50,8 +50,7 @@ class TemplateBase(object):
         if not Path(relpath).exists() and not create:
             return
 
-        shutil.copyfile(self.template(relpath), Path(relpath))
-        os.chmod(relpath, os.stat(relpath).st_mode | stat.S_IEXEC)
+        copy_from_template(self.template(relpath), relpath)
 
     def template(self, relpath):
         return Path(__file__).parent.joinpath(self.name, relpath)
