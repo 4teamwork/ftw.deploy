@@ -16,6 +16,19 @@ It requires Python 3!
 The package can be installed with ``pip`` in combination with your favorite
 way of isolation / virtual-env.
 
+Example:
+
+.. code::
+
+   $ python3 -m venv ftw.deploy
+   $ cd ftw.deploy
+   $ source bin/activate
+   $ ./bin/pip install ftw.deploy
+
+   # sym-link the deploy script into your PATH
+   $ ln -s `pwd`/bin/deploy ~/bin
+   $ deploy --help
+
 
 Usage
 -----
