@@ -70,8 +70,8 @@ In order to develop ``ftw.deploy``, you need to install
 
   $ git clone git@github.com:4teamwork/ftw.deploy.git
   $ cd ftw.deploy
-  $ pipenv install
-  $ pipenv shell && rehash
+  $ pipenv install --dev
+  $ pipenv shell
   $ deploy --help
   $ pytest
 
