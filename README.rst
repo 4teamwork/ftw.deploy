@@ -15,7 +15,6 @@ It requires Python 3!
 
 The package can be installed with ``pip`` in combination with your favorite
 way of isolation / virtual-env.
-You may want to use `pipsi <https://github.com/mitsuhiko/pipsi>`_ for installation.
 
 
 Usage
