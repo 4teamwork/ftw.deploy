@@ -60,6 +60,11 @@ order to install an update. Examples:
 
 If you need to rerun a deployment, simply use ``deploy rerun [remote]``.
 
+**Connect to the deployment with ssh**
+
+``ftw.deploy`` provides a shortcut for connecting with ssh and cd'ing into
+the deployment directory ``deploy ssh [remote]``.
+
 
 Templates
 ---------

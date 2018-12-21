@@ -29,3 +29,19 @@ def rerun_last_deployment(remote_ssh_string):
     remote_execute(
         remote_ssh_string,
         "deploy/after_push `git rev-parse HEAD@{1} HEAD` | tee -a log/deploy.log")
+
+
+def ssh_connect(remote_ssh_string, ssh_options, user):
+    user_host, directory = remote_ssh_string.split(':')
+    if user:
+        if '@' in user_host:
+            user_host = user_host.split('@', 1)[1]
+        user_host = '@'.join((user, user_host))
+
+    command = ['ssh'] + ssh_options + [user_host, '-t', f'cd {directory}; bash --login']
+    print(f'connecting to:       {user_host}')
+    print(f'change directory to: {directory}')
+    print()
+    print('> {}'.format(' '.join(command)))
+    print()
+    subprocess.check_call(command)

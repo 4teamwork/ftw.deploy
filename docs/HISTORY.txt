@@ -5,7 +5,7 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Provide "deploy ssh" command. [jone]
 
 
 1.0.0 (2018-12-21)

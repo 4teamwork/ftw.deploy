@@ -19,7 +19,7 @@ def gitrepo(tmpdir_factory):
 
     run('git init')
     run('git remote add origin git@github.com:4teamwork/ftw.deploy.test.git')
-    run('git remote add prod example.com:/apps/01-prod')
+    run('git remote add prod zope@example.com:/apps/01-prod')
     run('git remote add test example.com:/apps/02-test')
 
     run(f'ln -s {BIN_STUBS} bin')

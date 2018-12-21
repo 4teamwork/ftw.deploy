@@ -6,6 +6,7 @@ from . import help
 from . import init
 from . import rerun
 from . import setup
+from . import ssh
 from . import update
 from .. import VERSION
 from .formatter import FlexiFormatter
@@ -28,6 +29,7 @@ class DeployCommand(object):
         init.setup_argparser(commands)
         rerun.setup_argparser(commands)
         setup.setup_argparser(commands)
+        ssh.setup_argparser(commands)
         update.setup_argparser(commands)
 
         help.setup_argparser(commands)
