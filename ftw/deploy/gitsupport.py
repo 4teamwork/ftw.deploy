@@ -3,8 +3,12 @@ import subprocess
 
 
 def get_remote_names():
-    return tuple(map(lambda line: line.strip().decode('utf-8'),
-                     subprocess.check_output(shlex.split('git remote')).strip().split()))
+    try:
+        output = subprocess.check_output(shlex.split('git remote'))
+    except subprocess.CalledProcessError:
+        # probably not a git repository
+        return ()
+    return tuple(map(lambda line: line.strip().decode('utf-8'), output.strip().split()))
 
 
 def get_ssh_string_of_remote(remote):

@@ -5,6 +5,8 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
+- Fix bug causing crash when not in a git repository. [jone]
+
 - Provide "deploy ssh" command. [jone]
 
 
