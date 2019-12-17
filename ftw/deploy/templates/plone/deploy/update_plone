@@ -110,6 +110,7 @@ def update_plone(oldrev, newrev, force=False, skip_deferrable=False):
 
     update_supervisor_config()
     recook_resources()
+    combine_aggregations()
     maybe_stop('instance0')
 
     # update_supervisor_config did not update event listeners
@@ -356,6 +357,16 @@ def run_plone_upgrades():
 def recook_resources():
     for site in get_sites():
         run_fg('bin/upgrade recook -s %s' % site['path'])
+
+
+def combine_aggregations():
+    """Combine Plone 5 resource bundle aggregations.
+    """
+    for site in get_sites():
+        # Do not abort on errors, because:
+        # - old ftw.upgrade versions do not have this command
+        # - Plone 4 does not have aggregations
+        run_fg('bin/upgrade combine_bundles -s %s' % site['path'], abort_on_error=False)
 
 
 def update_supervisor_config():
