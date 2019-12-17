@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2.1 (unreleased)
+1.3.0 (2019-12-17)
 ------------------
 
 - Plone template: combine Plone 5 resource bundle aggregations. [jone]
